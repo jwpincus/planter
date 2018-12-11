@@ -8,4 +8,13 @@ RSpec.describe Plant, type: :model do
     expect(plant.fertilizer).to eq(20)
     expect(plant.sunlight).to eq(20)
   end
+
+  it "adds water correctly and decrements fertilizer and sunlight" do
+    plant = Plant.create
+    plant.add('water')
+    expect(plant.water).to be > 20
+    expect(plant.fertilizer).to be < 20
+    expect(plant.sunlight).to be < 20
+  end
+
 end

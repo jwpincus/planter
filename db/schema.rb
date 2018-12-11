@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_205526) do
+ActiveRecord::Schema.define(version: 2018_12_11_210845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "plants", force: :cascade do |t|
     t.integer "height", default: 0
-    t.boolean "alive", default: false
     t.integer "water", default: 20
     t.integer "fertilizer", default: 20
     t.integer "sunlight", default: 20

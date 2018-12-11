@@ -13,5 +13,14 @@ RSpec.feature "Plant homescreen", type: :feature do
     expect(page).to have_text(Plant.last.water)
     expect(page).to have_text(Plant.last.fertilizer)
     expect(page).to have_text(Plant.last.sunlight)
+
+    click_link 'Water Plant'
+    expect(Plant.last.water).to be > 20
+    expect(Plant.last.fertilizer).to be < 20
+    expect(Plant.last.sunlight).to be < 20
+
+    Plant.last.update_attribute(:water, 0)
+    visit '/' #reload to check if this backend wizrdry worked
+    expect(page).to have_text("Your plant has run out of resources at a height of #{Plant.last.height}!")
   end
 end

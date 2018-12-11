@@ -10,4 +10,9 @@ class PlantsController < ApplicationController
     redirect_to root_path
   end
 
+  def update
+    Plant.find_by_id(params[:id]).play(params[:play])
+    redirect_to root_path
+  end
+
 end

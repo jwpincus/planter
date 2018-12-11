@@ -1,6 +1,7 @@
 class PlantsController < ApplicationController
 
   def index
+    @high_score = session[:high_score] || 0
     @plant = Plant.find_by_id(session[:plant_id])
   end
 
@@ -11,7 +12,10 @@ class PlantsController < ApplicationController
   end
 
   def update
-    Plant.find_by_id(params[:id]).play(params[:play])
+    plant = Plant.find_by_id(params[:id])
+    plant.play(params[:play])
+    plant.height > session[:high_score] ? session[:high_score] = plant.height : nil
+
     redirect_to root_path
   end
 

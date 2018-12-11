@@ -3,4 +3,24 @@
 <% if !@plant %>
   <p>You don't seem to have any plants</p>
   <%= link_to 'Put a seed in the dirt!', plants_path, method: :post %>
+<% else %>
+  <p>The seed has been planted!</p>
+  <table>
+    <thead>
+      <tr>
+        <td>Height</td>
+        <td>Fertilizer</td>
+        <td>Sunlight</td>
+        <td>Water</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @plant.height %></td>
+        <td><%= @plant.fertilizer %></td>
+        <td><%= @plant.sunlight %></td>
+        <td><%= @plant.water %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

@@ -9,5 +9,9 @@ RSpec.feature "Plant homescreen", type: :feature do
     click_link 'Put a seed in the dirt!'
 
     expect(page).to have_text('The seed has been planted!')
+    expect(page).to have_text(Plant.last.height)
+    expect(page).to have_text(Plant.last.water)
+    expect(page).to have_text(Plant.last.fertilizer)
+    expect(page).to have_text(Plant.last.sunlight)
   end
 end

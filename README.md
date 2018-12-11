@@ -15,3 +15,4 @@ Testing from root, run:
 known issues:
 Testing is light for front-end gameplay mechanics due to the unpredictable nature of random numbers ;-)
 The gameplay algorithm is maybe too simple, and maybe should be abstracted into its own class
+~~No high score displayed~~

@@ -1,0 +1,6 @@
+<h1>Planter!</h1>
+
+<% if !@plant %>
+  <p>You don't seem to have any plants</p>
+  <%= link_to 'Put a seed in the dirt!', plants_path, method: :post %>
+<% end %>

@@ -1,12 +1,9 @@
 class Plant < ApplicationRecord
 
   def play(necessity)
-    self.water += 10 if necessity == 'water'
-    self.fertilizer += 10 if necessity == 'fertilizer'
-    self.sunlight += 10 if necessity == 'sunlight'
     grow
+    increment(necessity)
     decrement
-    save
   end
 
   def alive
@@ -14,6 +11,13 @@ class Plant < ApplicationRecord
   end
 
   private
+
+  def increment(necessity)
+    self.water += 10 if necessity == 'water'
+    self.fertilizer += 10 if necessity == 'fertilizer'
+    self.sunlight += 10 if necessity == 'sunlight'
+    save
+  end
 
   def decrement
     self.water -= rand(1..5) + self.turn_count

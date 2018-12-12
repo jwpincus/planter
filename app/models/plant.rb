@@ -1,8 +1,8 @@
 class Plant < ApplicationRecord
 
   def play(necessity)
-    grow
     increment(necessity)
+    grow
     decrement
   end
 

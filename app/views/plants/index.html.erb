@@ -2,6 +2,7 @@
 <h2>Don't let your plant run out of resources!</h2>
 <p>Your plant will grow as much as the most limited resource</p>
 <p>Your plant will consume more resources as it grows</p>
+<p>This is your <%= @plant_count %> plant</p>
 
 <% if !@plant %>
   <p>You don't seem to have any plants</p>
@@ -30,8 +31,11 @@
   <% if @plant.alive %>
     Take an action this turn!<br>
     <%= link_to 'Fertilize Plant', plant_path(@plant, play: :fertilizer), method: :patch %><br>
+    <%= link_to 'Fertilize Plant (double or nothing)', plant_path(@plant, play: :fertilizer, double: true), method: :patch %><br>
     <%= link_to 'Put plant in sunlight', plant_path(@plant, play: :sunlight), method: :patch %><br>
+    <%= link_to 'Put plant in sunlight (double or nothing)', plant_path(@plant, play: :sunlight, double: true), method: :patch %><br>
     <%= link_to 'Water Plant', plant_path(@plant, play: :water), method: :patch %><br>
+    <%= link_to 'Water Plant (double or nothing)', plant_path(@plant, play: :water, double: true), method: :patch %><br>
   <% else %>
     Your plant has run out of resources at a height of <%= @plant.height %>!<br>
     <%= link_to 'Put a seed in the dirt!', plants_path, method: :post %>

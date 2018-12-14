@@ -18,4 +18,18 @@ RSpec.describe Plant, type: :model do
     expect(plant.height).to be > 0
   end
 
+  it "adds water correctly and decrements fertilizer and sunlight while growing with double or nothing" do
+    plant = Plant.create
+    lucky = plant.play('water', 'true')
+    if lucky
+      expect(plant.water).to be > 30
+    else
+      expect(plant.water).to be < 20
+    end
+  end
+
+  it "should have a user" do
+    belong_to(:user)
+  end
+
 end
